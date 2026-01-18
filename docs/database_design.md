@@ -101,12 +101,12 @@ Links orders with products (many-to-many relationship)
 
 ## Key Concepts Explained
 
-**PRIMARY KEY**: Unique identifier for each row
-**FOREIGN KEY**: Links to another table's PRIMARY KEY
-**NOT NULL**: This field must have a value
-**UNIQUE**: No two rows can have the same value
-**AUTO INCREMENT**: Database automatically assigns the next number
-**DECIMAL(10,2)**: Number with 10 total digits, 2 after decimal (for money)
-**VARCHAR(n)**: Text with maximum n characters
-**TEXT**: Long text with no specific limit
-**TIMESTAMP**: Stores date and time
+**PRIMARY KEY**: Unique identifier for each row   
+**FOREIGN KEY**: Links to another table's PRIMARY KEY   
+**NOT NULL**: This field must have a value   
+**UNIQUE**: No two rows can have the same value    
+**AUTO INCREMENT**: Database automatically assigns the next number   
+**DECIMAL(10,2)**: Number with 10 total digits, 2 after decimal (for money)   
+**VARCHAR(n)**: Text with maximum n characters   
+**TEXT**: Long text with no specific limit   
+**TIMESTAMP**: Stores date and time   
