@@ -1,6 +1,7 @@
 from flask import Flask
 from config import config
 from app.models import db
+from flask_cors import CORS
 
 
 def create_app(config_name='development'):
@@ -14,8 +15,8 @@ def create_app(config_name='development'):
     # Initialize database with app
     db.init_app(app)
     
-    # Register blueprints (routes) - we'll add this later
-    # from app.routes import main
-    # app.register_blueprint(main)
+    # Register blueprints (routes)
+    from app.routes import main
+    app.register_blueprint(main)
     
     return app
