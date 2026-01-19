@@ -16,7 +16,7 @@ def create_app(config_name='development'):
     db.init_app(app)
     
     # Register blueprints (routes)
-    from app.routes import main
-    app.register_blueprint(main)
+    from app.routes import api
+    app.register_blueprint(api, url_prefix='/api')
     
     return app
