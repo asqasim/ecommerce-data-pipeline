@@ -100,7 +100,9 @@ GET  /api/test                  # Health check
 
 ## 👤 Author
 
-**GitHub:** [@asqasim](https://github.com/asqasim)
+**GitHub:** [asqasim](https://github.com/asqasim)   
+**LinkedIn:** [asqasim](https://linkedin.com/in/asqasim)   
+**Kaggle:** [asqasim](https://kaggle.com/asqasim)   
 
 ---
 
