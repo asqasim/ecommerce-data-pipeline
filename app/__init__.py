@@ -9,6 +9,9 @@ def create_app(config_name='development'):
     # Create Flask app instance
     app = Flask(__name__)
     
+    # ✅ ADD THIS LINE HERE
+    CORS(app)
+
     # Load configuration
     app.config.from_object(config[config_name])
     
