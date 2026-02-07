@@ -1,11 +1,10 @@
-import "./App.css";
+import { CartContextProvider } from "./context/CartContext";
+import Button from "./components/ui/Button";
 
 export default function App() {
   return (
-    <>
-      <h1>Hi There</h1>
-    </>
+    <CartContextProvider>
+      <Button />
+    </CartContextProvider>
   );
 }
-
-
