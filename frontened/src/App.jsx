@@ -1,10 +1,13 @@
-import { CartContextProvider } from "./context/CartContext";
-import Button from "./components/ui/Button";
+import { CartProvider } from "./context/CartContext";
+import { ProductProvider } from "./context/ProductContext";
+import Container from "./components/ui/Container";
 
 export default function App() {
   return (
-    <CartContextProvider>
-      <Button />
-    </CartContextProvider>
+    <ProductProvider>
+      <CartProvider>
+        <Container />
+      </CartProvider>
+    </ProductProvider>
   );
 }
