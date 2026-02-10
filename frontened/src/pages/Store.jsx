@@ -175,6 +175,8 @@ export default function Store() {
         ))
       )}
 
+     {isLoadingMore && <Loading />}
+
       {!hasMore && <p>No more products</p>}
     </div>
   );

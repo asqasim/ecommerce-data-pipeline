@@ -1,16 +1,13 @@
+import { ITEMS_PER_PAGE } from "../../lib/constants";
+import ProductSkeleton from "./ProdcutSkeleton";
+
 export default function Loading() {
+  const productsSkeleton = Array.from({ length: ITEMS_PER_PAGE }).map(
+    (_, i) => <ProductSkeleton key={i} />,
+  );
   return (
-    <div
-      style={{
-        width: "100%",
-        position: "relative",
-        border: "2px solid white",
-        height: "200px",
-        display: "flex",
-        textAlign: "center",
-        alignItems: "center",
-      }}>
-        <h1>Loading...</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {productsSkeleton}
     </div>
   );
 }
