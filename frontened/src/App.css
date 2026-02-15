@@ -1,0 +1,17 @@
+.appear {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: smooth-appear 1s ease forwards;
+}
+
+@keyframes smooth-appear {
+    from {
+        transform: translateY(6px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

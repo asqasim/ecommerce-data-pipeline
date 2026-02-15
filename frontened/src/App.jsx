@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { ProductProvider } from "./context/ProductContext";
 import Store from "./pages/Store";
+import "./App.css"
 
 export default function App() {
   return (

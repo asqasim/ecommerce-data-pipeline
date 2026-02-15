@@ -6,6 +6,7 @@ export default function Product(props) {
 
   return (
     <div
+    className="appear"
       key={key}
       style={{
         width: "100%",

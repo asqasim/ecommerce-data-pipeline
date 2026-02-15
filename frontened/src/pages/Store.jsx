@@ -1,21 +1,18 @@
-import { useMemo } from "react";
-import { useProducts } from "../context/ProductContext";
-import { applyFilters } from "../lib/filterUtils";
+import { useMemo ,useState,useEffect} from "react";
 import Product from "../components/Products/Product";
 import { useDebounce } from "../hooks/useDebounce";
 import Error from "../components/ui/error";
 import ProductsSkeleton from "../components/Products/ProductsSkeleton";
 
 import { useStoreFilters } from "../hooks/useStroeFilters";
-import { useInfiniteProducts } from "../hooks/useInfinitteProducts.";
+import { useProductsQuery } from "../hooks/useProductQuery";
 
 export default function Store() {
-  const { products, loading, error } = useProducts();
   const { filters, updateFilters, resetFilters, isDefaultFilters } =
-    useStoreFilters();
+  useStoreFilters();
   const debouncedSearch = useDebounce(filters.search, 300);
-
-
+  const [page, setPage] = useState(1);
+  
   const effectiveFilters = useMemo(
     () => ({
       ...filters,
@@ -23,21 +20,19 @@ export default function Store() {
     }),
     [filters, debouncedSearch],
   );
+  const { data : products , loading, error,hasMore, total } = useProductsQuery(effectiveFilters, page);
 
-  const filteredProducts = useMemo(
-    () => applyFilters(products, effectiveFilters),
-    [products, effectiveFilters],
-  );
-
-  const { displayedProducts, hasMore, isLoadingMore } =
-    useInfiniteProducts(filteredProducts);
+  const displayedProducts = products;
 
  
-
+useEffect(() => {
+  setPage(1);
+}, [filters]);
   /* ---------------- UI ---------------- */
   return (
     <div>
-      <button onClick={resetFilters} disabled={isDefaultFilters}>
+      <div className="flex gap-2">
+        <button onClick={resetFilters} disabled={isDefaultFilters}>
         Reset Filters
       </button>
 
@@ -59,7 +54,20 @@ export default function Store() {
         }>
         Over Thousand
       </button>
+      <input
+  type="text"
+  value={filters.search}
+  placeholder="Search Products"
+  onChange={(event) =>
+    updateFilters((prev) => ({
+      ...prev,
+      search: event.currentTarget.value,
+    }))
+  }
+/>
 
+      </div>
+      
       {loading ? (
         <ProductsSkeleton />
       ) : error ? (
@@ -77,8 +85,8 @@ export default function Store() {
         ))
       )}
 
-      {isLoadingMore && <ProductsSkeleton />}
-      {!hasMore && <p>No more products</p>}
+      {/* {isLoadingMore && <ProductsSkeleton />} */}
+      {!hasMore && !loading && <p className="text-neutral-500 font-medium text-sm uppercase  leading-tight tracking-tight text-center my-8">No more products</p>}
     </div>
   );
 }

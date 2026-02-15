@@ -1,6 +1,6 @@
 export const BASE_URL = "http://localhost:5000/api";
 export const MAX_PRODUCTS = 20;
-export const ITEMS_PER_PAGE = 5;
+export const ITEMS_PER_PAGE = 4;
 export const SCROLLY_END_DISTANCE = 100;
 
 export const DEFAULT_FILTERS = {

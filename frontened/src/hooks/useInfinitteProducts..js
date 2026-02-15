@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { ITEMS_PER_PAGE } from "../lib/constants";
+import { SCROLLY_END_DISTANCE } from "../lib/constants";
 
 export function useInfiniteProducts(filteredProdcuts) {
   const [displayedProducts, setDisplayedProducts] = useState([]);
@@ -30,7 +31,7 @@ export function useInfiniteProducts(filteredProdcuts) {
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + window.screenY >=
+        window.innerHeight + window.screenY <=
         document.body.offsetHeight - SCROLLY_END_DISTANCE
       ) {
         loadMore();
