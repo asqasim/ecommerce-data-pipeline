@@ -102,8 +102,4 @@ GET  /api/test                  # Health check
 
 **GitHub:** [asqasim](https://github.com/asqasim)   
 **LinkedIn:** [asqasim](https://linkedin.com/in/asqasim)   
-**Kaggle:** [asqasim](https://kaggle.com/asqasim)   
 
----
-
-⭐ Learning project - feedback welcome!
